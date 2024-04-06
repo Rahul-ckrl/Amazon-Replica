@@ -1,4 +1,4 @@
-import{formatCurrency} from "../scripts/utils/money.js";
+import {formatCurrency} from '../scripts/utils/money.js';
 
 export function getProduct(productId) {
   let matchingProduct;
@@ -11,52 +11,83 @@ export function getProduct(productId) {
 
   return matchingProduct;
 }
-class Product{
+
+class Product {
   id;
   image;
   name;
   rating;
   priceCents;
 
-  constructor(productDetails){
-    this.id=productDetails.id;
-    this.image=productDetails.image;
-    this.name=productDetails.name;
-    this.rating=productDetails.rating;
-    this.priceCents=productDetails.priceCents;  
-  } 
-
-  getStarsUrl(){
-    return `images/ratings/rating-${this.rating.stars * 10}.png` ;
+  constructor(productDetails) {
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
   }
 
-  getPrice(){
+  getStarsUrl() {
+    return `images/ratings/rating-${this.rating.stars * 10}.png`;
+  }
+
+  getPrice() {
     return `$${formatCurrency(this.priceCents)}`;
   }
 
-  extraInfoHTML(){
-    return "";
+  extraInfoHTML() {
+    return '';
   }
 }
-class Clothing extends Product{
+
+class Clothing extends Product {
   sizeChartLink;
 
-  constructor(productDetails){
+  constructor(productDetails) {
     super(productDetails);
-    this.sizeChartLink=productDetails.sizeChartLink;
+    this.sizeChartLink = productDetails.sizeChartLink;
   }
 
-  extraInfoHTML(){
-    
+  extraInfoHTML() {
+    // super.extraInfoHTML();
     return `
-    <a href="${this.sizeChartLink}" target="_blank>
-    Size chart
-    </a>
+      <a href="${this.sizeChartLink}" target="_blank">
+        Size chart
+      </a>
     `;
   }
 }
 
+/*
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
 
+/*
+console.log(this);
+
+const object2 = {
+  a: 2,
+  b: this.a
+};
+*/
+
+/*
+function logThis() {
+  console.log(this);
+}
+logThis();
+logThis.call('hello');
+
+this
+const object3 = {
+  method: () => {
+    console.log(this);
+  }
+};
+object3.method();
+*/
 
 export const products = [
   {
@@ -717,10 +748,9 @@ export const products = [
       "mens"
     ]
   }
-].map((productDetails)=>{
-  if(productDetails.type==='Clothing'){
+].map((productDetails) => {
+  if (productDetails.type === 'clothing') {
     return new Clothing(productDetails);
   }
   return new Product(productDetails);
 });
-  
