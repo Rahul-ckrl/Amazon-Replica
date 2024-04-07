@@ -1,61 +1,130 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Amazon Project</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to E-commerce Paradise!</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif; /* Choose a nice font here */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to right, #f2994a, #fcab0e); /* Gradient background */
+      color: #fff; /* White text */
+    }
 
-    <!-- This code is needed for responsive design to work.
-      (Responsive design = make the website look good on
-      smaller screen sizes like a phone or a tablet). -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    .container {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
 
-    <!-- Load a font called Roboto from Google Fonts. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    .title-wrapper {
+      margin-bottom: 2rem;
+    }
 
-    <!-- Here are the CSS files for this page. -->
-    <link rel="stylesheet" href="styles/shared/general.css">
-    <link rel="stylesheet" href="styles/shared/amazon-header.css">
-    <link rel="stylesheet" href="styles/pages/amazon.css">
-  </head>
-  <body>
-    <div class="amazon-header">
-      <div class="amazon-header-left-section">
-        <a href="amazon.html" class="header-link">
-          <img class="amazon-logo"
-            src="images/amazon-logo-white.png">
-          <img class="amazon-mobile-logo"
-            src="images/amazon-mobile-logo-white.png">
-        </a>
-      </div>
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 5px #fcab0e; /* Text shadow for depth */
+    }
 
-      <div class="amazon-header-middle-section">
-        <input class="search-bar" type="text" placeholder="Search">
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
 
-        <button class="search-button">
-          <img class="search-icon" src="images/icons/search-icon.png">
-        </button>
-      </div>
+    a {
+      background-color: #fcab0e; /* Button color */
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease-in-out;
+      box-shadow: 0 0 5px rgba(250, 171, 14, 0.5); /* Button shadow */
+    }
 
-      <div class="amazon-header-right-section">
-        <a class="orders-link header-link" href="orders.html">
-          <span class="returns-text">Returns</span>
-          <span class="orders-text">& Orders</span>
-        </a>
+    a:hover {
+      background-color: #e78f10; /* Button hover color */
+    }
 
-        <a class="cart-link header-link" href="checkout.html">
-          <img class="cart-icon" src="images/icons/cart-icon.png">
-          <div class="cart-quantity js-cart-quantity">0</div>
-          <div class="cart-text">Cart</div>
-        </a>
-      </div>
+    .background-scene {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .shopping-cart {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+    }
+
+    .animated-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 10rem;
+      animation: animateText 5s linear infinite alternate;
+    }
+
+    @keyframes animateText {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #fcab0e; /* Confetti color */
+      animation: confettiFall 5s linear infinite;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        top: 0;
+        left: random(0, 100vw);
+      }
+      100% {
+        top: 100vh;
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title-wrapper">
+      <h1>Welcome to E-commerce Paradise!</h1>
+      <p>Explore a world of endless possibilities.</p>
     </div>
-
-    <div class="main">
-      <div class="products-grid js-products-grid">
-      </div>
-    </div>
-
-    <script type="module" src="scripts/amazon.js"></script>
-  </body>
+    <a href="amazon.html">Shop Now!</a>
+    
+</body>
 </html>
