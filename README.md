@@ -1,0 +1,1 @@
+Developed an E-Commers static websites which resembles to amazon. It can perform actions like “addToCart”, “Shipping” and also calculate the amount based on the shipping date. It was completely created from scratch which covers the main topics of JavaScript like OOPs concept and creating a responsive website 
